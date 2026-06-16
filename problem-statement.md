@@ -1,5 +1,6 @@
 ---
 title: Problem Statement
+layout: home
 nav_order: 2
 ---
 
