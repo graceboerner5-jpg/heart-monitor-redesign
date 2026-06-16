@@ -56,7 +56,7 @@ alpha = 0.6; % Contamination factor (60% muscle noise intensity)
 n = s + alpha * v;
 ```
 ### (v) Results
-<img src="./noisy_heartbeat_signal.png" alt="Signal Modeling Sandbox" width="60%">
+<img src="./noisy_heartbeat_signal_v1.png" alt="Signal Modeling Sandbox" width="60%">
 
 
 
