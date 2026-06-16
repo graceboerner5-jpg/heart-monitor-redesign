@@ -11,5 +11,51 @@ nav_order: 3
 3) Analyze and improve ANC filter by improving signal-to-noise ratio.
 
 ## 1) Develop a "noisy" heartbeat signal.
-### (i) Creating a heartbeat signal (without noise)
+### (i) Creating the Heartbeat Signal
+
+```matlab
+% Generate rhythmic QRS spikes
+for i = 1:N
+    % Normalize phase to know what part of heartbeat we are at based on time
+    phase = mod(t(i), 1/freq) * freq;
+    if phase < 0.05
+        % R-wave (sharp spike)
+        heartbeat_signal(i) = 1.5 * exp(-((phase-0.02)/0.005)^2);
+    elseif phase >= 0.05 && phase < 0.15
+        % S-wave and T-wave
+        heartbeat_signal(i) = -0.3 * exp(-((phase-0.05)/0.01)^2) + 0.35 * exp(-((phase-0.12)/0.03)^2);
+    elseif phase > 0.85
+        % P-wave (placed at end to help with adaptive filter later)
+        heartbeat_signal(i) = 0.2 * exp(-((phase-0.92)/0.03)^2);
+    end
+end
+s_raw = heartbeat_signal;
+```
+### (ii) Developing the Muscle Artifact Signal
+
+```matlab
+rng(42); % Set random seed for reproducible results
+white_noise = randn(N, 1);
+
+% Apply a bandpass filter to shape the white noise into realistic muscle artifact
+[b, a] = butter(4, [30 150]/(Fs/2), 'bandpass');
+v_raw = filter(b, a, white_noise);
+```
+
+### (iii) Signal Conditioning & Standardization of Vectors
+
+```matlab
+s = (s_raw - mean(s_raw)) / std(s_raw);
+v = (v_raw - mean(v_raw)) / std(v_raw);
+```
+
+### (iv) Synthesize the Noisy Primary Channel Input
+
+```matlab
+alpha = 0.6; % Contamination factor (60% muscle noise intensity)
+n = s + alpha * v;
+```
+### (v) Results
+
+
 
