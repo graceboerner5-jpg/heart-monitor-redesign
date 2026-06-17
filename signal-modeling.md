@@ -10,6 +10,8 @@ nav_order: 3
 2. Develop an Adaptive Noise Canceling (ANC) filter and test it on "noisy" heartbeat signal.  
 3. Analyze and improve ANC filter by improving signal-to-noise ratio.
 
+---
+
 ## 1. Develop a "noisy" heartbeat signal.
 ### Creating the Heartbeat Signal
 
