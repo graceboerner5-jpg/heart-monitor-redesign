@@ -7,18 +7,19 @@ nav_order: 3
 
 ## Objectives
 1. Develop a signal representing a "noisy" heartbeat signal similar to what a sEMG setup would read.  
-2. Develop an Adaptive Noise Canceling (ANC) filter and test it on "noisy" heartbeat signal.  
-3. Analyze and improve ANC filter by improving signal-to-noise ratio.
+2. Develop an Adaptive Noise Canceling (ANC) filter and test it on a "noisy" heartbeat signal.  
+3. Analyze and improve the ANC filter by optimizing the signal-to-noise ratio.
 
 ---
 
 ## 1. Develop a "noisy" heartbeat signal.
+
 ### Creating the Heartbeat Signal
 
 ```matlab
 % Generate rhythmic QRS spikes
 for i = 1:N
-    % Normalize phase to know what part of heartbeat we are at based on time
+    % Normalize phase to track position within a single cardiac cycle (0.0 to 1.0)
     phase = mod(t(i), 1/freq) * freq;
     if phase < 0.05
         % R-wave (sharp spike)
