@@ -15,7 +15,7 @@ nav_order: 3
 
 ### Creating the Heartbeat Signal
 
-```
+```matlab
 % Generate rhythmic QRS spikes
 for i = 1:N
     % Normalize phase to track position within a single cardiac cycle (0.0 to 1.0)
