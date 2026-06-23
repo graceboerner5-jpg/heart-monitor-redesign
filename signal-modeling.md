@@ -51,14 +51,14 @@ s = (s_raw - mean(s_raw)) / std(s_raw);
 v = (v_raw - mean(v_raw)) / std(v_raw);
 ```
 
-### (iv) Synthesize the Noisy Primary Channel Input
+### (iv) Synthesize the Dirty Primary Channel Input
 
 ```matlab
 alpha = 0.6; % Contamination factor (60% muscle noise intensity)
-n = s + alpha * v;
+d = s + alpha * v;
 ```
 ### (v) Results
-<img src="./noisy_heartbeat_signal_v1.png" alt="Signal Modeling Sandbox" width="60%">
+<img src="./noisy_heartbeat_signal_v1.png" alt="Signal Modeling Sandbox" width="70%">
 
 
 
