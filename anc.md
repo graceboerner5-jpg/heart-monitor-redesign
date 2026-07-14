@@ -7,9 +7,9 @@ nav_order: 4
 # Adaptive Noise Canceling
 
 ## Objectives
-1. Develop a signal representing a "noisy" heartbeat signal similar to what a sEMG setup would read.  
+  1. Develop a signal representing a "noisy" heartbeat signal similar to what a sEMG setup would read.  
 **2. Develop an Adaptive Noise Canceling (ANC) filter and test it on a "noisy" heartbeat signal.**
-3. Analyze and improve the ANC filter by optimizing the signal-to-noise ratio.
+  3. Analyze and improve the ANC filter by optimizing the signal-to-noise ratio.
 
 ---
 
