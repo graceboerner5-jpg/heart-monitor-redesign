@@ -109,4 +109,4 @@ mse_ref_in  = mean((s(in_qrs)  - d(in_qrs)).^2);
 mse_ref_out = mean((s(out_qrs) - d(out_qrs)).^2);
 ```
 ### (v) Results
-<img src="./noisy_heartbeat_signal_v1.png" alt="Signal Modeling Sandbox" width="70%">
+<img src="./LMSvNLMS.png" alt="LMS v NLMS" width="70%">
