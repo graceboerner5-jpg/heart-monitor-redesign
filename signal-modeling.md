@@ -57,6 +57,7 @@ v = (v_raw - mean(v_raw)) / std(v_raw);
 ```
 
 ### (iv) Synthesize the Dirty Primary Channel Input
+This final step pulls both signals together to become a noisy heartbeat signal similar to what a real ECG electrode experiences. The final signal 'd' now contains both the heart signal and the muscle noise signal. The contamination factor allows for adjustment of the added muscle noise intensity. 
 
 ```matlab
 alpha = 0.6; % Contamination factor (60% muscle noise intensity)
