@@ -16,6 +16,7 @@ nav_order: 3
 ## 1. Develop a "noisy" heartbeat signal.
 
 ### Creating the Heartbeat Signal
+The heartbeat signal is coded with constituent Gaussian pulses where each part (R-wave, S-wave and T-wave, and P-wave) are graphed with the Gaussian equation using different values for the variables (A, mu, sigma). The phase variable is used to track the position in the signal to know which version of the Gaussian equation to graph within a single cardiac cycle.
 
 ```matlab
 % Generate rhythmic QRS spikes
@@ -36,6 +37,7 @@ end
 s_raw = heartbeat_signal;
 ```
 ### (ii) Developing the Muscle Artifact Signal
+
 
 ```matlab
 rng(42); % Set random seed for reproducible results
