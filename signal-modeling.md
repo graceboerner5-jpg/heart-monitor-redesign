@@ -49,6 +49,7 @@ v_raw = filter(b, a, white_noise);
 ```
 
 ### (iii) Signal Conditioning & Standardization of Vectors
+To standardize the signal vectors, both the cardiac signal vector and muscle artifact signal vector undergo a z-score normalization. It is crucial to put both the ECG and EMG signals on the same scale to ensure that the filter is able to correctly filter out unwanted noise and not deform the original signal.
 
 ```matlab
 s = (s_raw - mean(s_raw)) / std(s_raw);
