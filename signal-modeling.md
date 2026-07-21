@@ -64,7 +64,9 @@ alpha = 0.6; % Contamination factor (60% muscle noise intensity)
 d = s + alpha * v;
 ```
 ### (v) Results
+**Figure 1** shows a ten second interval of the clean heartbeat signal, isolated muscle sEMG noise vector, and the signals combined to create the noisy heartbeat signal.
 <img src="./noisy_heartbeat_signal_v1.png" alt="Signal Modeling Sandbox" width="105%">
+**Figure 1.** Multi-Channel Signals and Combined Signal
 
 
 
