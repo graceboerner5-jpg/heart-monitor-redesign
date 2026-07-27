@@ -68,5 +68,7 @@ d = s + alpha * v;
 <img src="./noisy_heartbeat_signal_v1.png" alt="Signal Modeling Sandbox" width="105%">
 **Figure 1.** Multi-Channel Signals and Combined Signal
 
+### (vi) Implications
+This modeled noisy heartbeat signal now serves as a stable reference for evaluating filtering methods. Because its structure and noise characteristics are controlled, the filter can be tested without the variability and unpredictability of real ECG recordings. This allows for a more precise filter testing process before applying it to live physiological data.
 
 
