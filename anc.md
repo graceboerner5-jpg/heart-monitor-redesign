@@ -115,5 +115,8 @@ mse_ref_out = mean((s(out_qrs) - d(out_qrs)).^2);
 ### (v) Results
 
 <img src="./LMSvNLMS.png" alt="LMS v NLMS" width="110%">
+**Figure 2.** 
 <img src="./qrsgating.png" alt="QRS Gating" width="110%">
+**Figure 3.**
 <img src="./msebyregion.png" alt="MSE by region" width="110%">
+**Figure 4.**
