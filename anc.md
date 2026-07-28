@@ -16,6 +16,7 @@ nav_order: 4
 ## 2. Develop an Adaptive Noise Canceling (ANC) filter and test it on a "noisy" heartbeat signal. 
 
 ### (i) Initializing the Filters
+First, key parameters are set up for the filter such as filter order, step size, and NLMS regulation factor. Output and weight vectors are also pre-allocated for LMS, Normalized LMS, and QRS-Gated LMS to optimize memory use during loop execution.
 
 ```matlab
 M       = 32;       % Filter order
@@ -37,6 +38,7 @@ y_lms_gated = zeros(Total_Samples, 1);
 W_lms_gated = zeros(M, 1);
 ```
 ### (ii) Developing the QRS-Gating Logic (Creating the Freeze)
+The QRS-Gating logic is then predetermined by identifying a threshold for R-peak height, minimum distance between beats, and a freeze window around the R-peak. By finding the peaks in each freeze window, the filter can be temporarily paused as to not reduce the R-peaks during the QRS complexes.
 
 ```matlab
 % Build the Real-Time Freeze Mask
@@ -57,24 +59,25 @@ end
 ```
 
 ### (iii) The Adaptive Filtering Loop
+The adaptive filtering loop is where the filter itself is executed, and this loop is the most significant portion of the code. During each sample, all three adaptive filters are run (LMS, NLMS, and Gated LMS). The result is the output of the adaptive filter as well as the true filtered output for each adaptive method.
 
 ```matlab
 % Combined Filter Execution Loop
 for n = M:Total_Samples
     X_n = v(n:-1:n-M+1);   % Delay-line window from reference channel
 
-    %% Standard LMS (ungated -- may have ST distortion)
+    %% Standard LMS (ungated)
     y_lms(n) = W_lms' * X_n;
     e_lms(n) = d(n) - y_lms(n);
     W_lms    = W_lms + 2 * mu * e_lms(n) * X_n;
 
-    %% Normalized LMS (Self-stabilizing step-size via power normalization)
+    %% Normalized LMS (Self-stabilizing step-size)
     mu_n      = mu / (norm(X_n)^2 + epsilon);
     y_nlms(n) = W_nlms' * X_n;
     e_nlms(n) = d(n) - y_nlms(n);
     W_nlms    = W_nlms + 2 * mu_n * e_nlms(n) * X_n;
 
-    %% QRS-Gated LMS (Freezes updates during high-energy transients)
+    %% QRS-Gated LMS (Freezes updates during QRS complexes)
     y_lms_gated(n) = W_lms_gated' * X_n;
     e_lms_gated(n) = d(n) - y_lms_gated(n);
     if ~freeze_mask(n)
@@ -84,6 +87,7 @@ end
 ```
 
 ### (iv) Evaluating Filter Performance (Separating into In-QRS and Out-of-QRS)
+After the filter is complete, the filter performance is evaluated by splitting up the In-QRS and Out-of-QRS regions. It ignores early samples to account for stabilization and calculates the Mean Squared Error (MSE) and Signal to Noise Ratio (SNR) improvements against the original signal for each region.
 
 ```matlab
 % Using Phase Calculation to Determine In-QRS v. Out-of-QRS
@@ -109,6 +113,7 @@ mse_ref_in  = mean((s(in_qrs)  - d(in_qrs)).^2);
 mse_ref_out = mean((s(out_qrs) - d(out_qrs)).^2);
 ```
 ### (v) Results
+
 <img src="./LMSvNLMS.png" alt="LMS v NLMS" width="110%">
 <img src="./qrsgating.png" alt="QRS Gating" width="110%">
 <img src="./msebyregion.png" alt="MSE by region" width="110%">
