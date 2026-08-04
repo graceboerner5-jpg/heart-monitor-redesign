@@ -1,5 +1,5 @@
 title: Heart Monitor Redesign
-description: A starter template for a Jekyll site using the Just the Docs theme!
+description: A website following my research and testing of an alternative way for filtering in heart monitors.
 theme: just-the-docs
 
 markdown: kramdown
@@ -8,7 +8,7 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-url: https://just-the-docs.github.io
+url: https://graceboerner5-jpg.github.io/heart-monitor-redesign
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  Template Repository: https://github.com/graceboerner5-jpg/heart-monitor-redesign
