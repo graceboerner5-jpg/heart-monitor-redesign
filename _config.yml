@@ -1,6 +1,9 @@
 title: ECG - Adaptive Noise Cancellation
 description: A website following my research and testing of an alternative way for filtering in heart monitors.
-theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs
+
+plugins:
+  - jekyll-remote-theme
 
 markdown: kramdown
 
