@@ -6,10 +6,9 @@ nav_order: 4
 
 # Adaptive Noise Canceling
 
-## Objectives
-1. Develop a signal representing a "noisy" heartbeat signal similar to what a sEMG setup would read.  
-2. Develop an Adaptive Noise Canceling (ANC) filter and test it on a "noisy" heartbeat signal.
-3. Analyze and improve the ANC filter by optimizing the signal-to-noise ratio.
+## Objective & Reasoning 
+**Objective:** Develop an Adaptive Noise Canceling (ANC) filter and test it on a "noisy" heartbeat signal.
+Creating an adaptive filter will allow muscle noise (EMG) to be removed from the true heartbeat signal (ECG) by utilizing a multi-channel system. With one channel being the noisy signal and one channel being the muscle noise, the subtraction of the muscle noise from the noisy signal should result in the clear heartbeat signal.
 
 ---
 
