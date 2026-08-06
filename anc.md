@@ -4,7 +4,7 @@ layout: home
 nav_order: 4
 ---
 
-# Adaptive Noise Canceling
+# Adaptive Noise Canceling 
 
 ## Objective & Reasoning 
 **Objective:** Develop an Adaptive Noise Canceling (ANC) filter and test it on a "noisy" heartbeat signal.
