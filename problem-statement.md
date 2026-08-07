@@ -4,7 +4,7 @@ layout: home
 nav_order: 2
 ---
 
-# Problem Statement
+# **Problem Statement**
 
 Current wearable ECG devices require the user to remain still during monitoring which limits their use during physical activity.
 
