@@ -37,7 +37,7 @@ end
 s_raw = heartbeat_signal;
 ```
 ### (ii) Developing the Muscle Artifact Signal
-The muscle artifact signal is developed by using a 4th order Butterworth bandpass filter with a passband of 30 to 150 Hz, scaled relative to the Nyquist frequency. The lower and bound was determined because muscle fiber frequency can be as low as 30 Hz. The upper bound was chosen because the dominant power spectral density of sEMG ranges between 50 and 150 Hz. The model of a muscle artifact signal is completed when Gaussian white noise is passed through the developed filter. 
+The muscle artifact signal is developed by using a 4th order Butterworth bandpass filter with a passband of 30 to 150 Hz, scaled relative to the Nyquist frequency. The lower and bound was determined because muscle fiber frequency can be as low as 30 Hz. The upper bound was chosen because the dominant power spectral density of sEMG ranges between 50 and 150 Hz. A published case study (PMC6174498) describes inappropriate ICD therapy resulting from pectoral myopotential oversensing, resolved only when the device's sensing filter was narrowed from 21–171 Hz to 20–85 Hz. This range directly overlaps with the muscle artifact modeled in this project. The model of a muscle artifact signal is completed when Gaussian white noise is passed through the developed filter. 
 
 ```matlab
 rng(42); % Set random seed for reproducible results
