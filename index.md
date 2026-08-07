@@ -3,7 +3,7 @@ title: Home
 layout: home
 nav_order: 1
 ---
-# Home
+# **Home**
 
 Welcome! This project investigates adaptive noise cancellation algorithms developed to overcome a significant limitation in cardiac monitoring. This critical limitation requires heart monitor users to be still during monitoring to prevent severe motion artifacts from disrupting the cardiac signal. 
 
