@@ -4,15 +4,13 @@ layout: home
 nav_order: 4
 ---
 
-# Adaptive Noise Canceling 
+# **Adaptive Noise Canceling**
 
 ## Objective & Reasoning 
 **Objective:** Develop an Adaptive Noise Canceling (ANC) filter and test it on a "noisy" heartbeat signal.
 **Reasoning:** Creating an adaptive filter will allow muscle noise (EMG) to be removed from the true heartbeat signal (ECG) by utilizing a multi-channel system. With one channel being the noisy signal and one channel being the muscle noise, the subtraction of the muscle noise from the noisy signal should result in the clear heartbeat signal.
 
 ---
-
-## 2. Develop an Adaptive Noise Canceling (ANC) filter and test it on a "noisy" heartbeat signal. 
 
 ### (i) Initializing the Filters
 First, key parameters are set up for the filter such as filter order, step size, and NLMS regulation factor. Output and weight vectors are also pre-allocated for LMS, Normalized LMS, and QRS-Gated LMS to optimize memory use during loop execution.
@@ -114,8 +112,8 @@ mse_ref_out = mean((s(out_qrs) - d(out_qrs)).^2);
 ### (v) Results
 
 <img src="./LMSvNLMS.png" alt="LMS v NLMS" width="110%">
-**Figure 2.** 
+**Figure 1.** ANC Performance: Ground Truth vs. LMS and NLMS Filtered Signals
 <img src="./qrsgating.png" alt="QRS Gating" width="110%">
-**Figure 3.**
+**Figure 2.** QRS-Gated Freeze Window and QRS-Gated Freeze LMS vs. Standard LMS
 <img src="./msebyregion.png" alt="MSE by region" width="110%">
-**Figure 4.**
+**Figure 3.** Regional Error Analysis: In-QRS vs. Out-of-QRS Performance Comparison
